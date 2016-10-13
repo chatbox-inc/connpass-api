@@ -3,6 +3,10 @@
 use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
 
+$app->get('/', function(){
+	return 'hello!';
+});
+
 $app->get('/api', function(Request $request){
 
 	$client = new \GuzzleHttp\Client();
