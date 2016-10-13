@@ -1,0 +1,18 @@
+{
+	"name": "Connpass GroupAPI",
+	"description": "ボタン一つで所属グループのイベント一覧を返すAPIを作成する事ができます。",
+	"keywords": [
+		"connpass"
+	],
+	"env": {
+		"SERIES_ID": {
+			"description": "グループのseriesIDを入力してください。"
+		}
+	},
+	"repository": "https://github.com/44x1carbon/test-heroku-btn-connpass.git",
+	"buildpacks": [
+		{
+			"url": "heroku/php"
+		}
+	]
+}
