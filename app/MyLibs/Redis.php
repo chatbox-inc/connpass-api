@@ -12,7 +12,7 @@ class Redis {
 	}
 
 	function get($key) {
-		return json_decode(self::$client->get($key));
+		return json_decode(self::$client->get($key),TRUE);
 	}
 
 	function set($key,$value) {
