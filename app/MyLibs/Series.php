@@ -21,6 +21,7 @@ class Series {
 			"query" => [ 
 				"series_id" => $series_id,
 				"count" => 10,
+				"order" => 1,
 				"ym" => $now->format('Ym') . ','. $now->addMonths(1)->format('Ym'). ','. $now->addMonths(2)->format('Ym')
 			]
 		]);
