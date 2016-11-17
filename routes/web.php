@@ -19,4 +19,25 @@ $app->get('/api', function(Request $request){
 	return JsonResponse::create($data,200,[]); 
 });
 
+use App\MyLibs\API;
+use App\MyLibs\Redis;
+use App\MyLibs\Events;
+
+$app->get('/test/new',function(){
+	$key = 'cache_events';
+
+	$client = new Redis();
+	$res = API::getEvents();
+	$events = new Events( $client->get( $key ) );
+	$diff = $events->diff( new Events( $res ) );
+	if( count( $diff ) !== 0 ) $client->set($key, $res);
+	return JsonResponse::create($diff);
+});
+
+$app->get('/tweet', function() use($app)
+{	
+	$tweet = Twitter::getUserTimeline(['screen_name' => 'HatchUp', 'count' => 1, 'format' => 'json']);
+    $hoge = Twitter::postTweet(['status' => 'testtesttesttesttesttesttesttesttesttest http://44-test.connpass.com/event/43275/ #hogehoge', 'format' => 'json'] );
+	return JsonResponse::create($hoge);
+});
 ?>
