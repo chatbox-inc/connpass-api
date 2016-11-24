@@ -7,8 +7,22 @@
 	"env": {
 		"SERIES_ID": {
 			"description": "グループのseriesIDを入力してください。"
-		}
+		},
+		"TWITTER_CONSUMER_KEY": {
+
+		},
+		"TWITTER_CONSUMER_SECRET": {},
+		"TWITTER_ACCESS_TOKEN": {}, 
+		"TWITTER_ACCESS_TOKEN_SECRET": {}
 	},
+	"addons": [
+		{
+			"plan": "heroku-redis:hobby-dev"
+		},
+		{
+			"plan": "scheduler:standard"
+		}
+	],
 	"repository": "https://github.com/44x1carbon/test-heroku-btn-connpass.git",
 	"buildpacks": [
 		{
